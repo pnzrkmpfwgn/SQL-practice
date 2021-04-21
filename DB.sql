@@ -5,9 +5,8 @@ CREATE TABLE student (
     PRIMARY KEY(student_id)
 );
 
-DESCRIBE student;
-DROP TABLE student /*used for deleting tables*/
+SELECT * FROM student;
 
-ALTER TABLE student ADD gpa DECIMAL(3,2);
-
-ALTER TABLE student DROP COLUMN gpa /* using alter command to drop column */
+/*INSERT INTO student VALUES(1, 'Jack', 'Biology');*/
+/*INSERT INTO student VALUES(2,'Kate','Sociology');*/
+INSERT INTO student(student_id,name) VALUES(3,'Claire');/*Third parameter will be NULL by default*/
