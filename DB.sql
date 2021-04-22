@@ -1,5 +1,15 @@
 DROP TABLE student;
 
+UPDATE student
+SET major = 'Biochemistry'
+WHERE major = 'Bio' OR major = 'Chemistry';
+
+DELETE from student
+WHERE student_id = 5;
+
+DELETE from student 
+WHERE name = 'Tom' AND major = 'undecided';
+
 CREATE TABLE student (
     student_id INT AUTO_INCREMENT,
     name VARCHAR(20) NOT NULL,
@@ -9,8 +19,8 @@ CREATE TABLE student (
 
 SELECT * FROM student;
 
-INSERT INTO student(name) VALUES('Jack');
+INSERT INTO student(name,major) VALUES('Jack','Biology');
 INSERT INTO student(name,major) VALUES('Kate','Sociology');
-INSERT INTO student(student_id,name) VALUES(3,'Claire');
-INSERT INTO student VALUES(4,'Jack','Biology');
-INSERT INTO student VALUES(5,'Mike','Computer Science');
+INSERT INTO student(name,major) VALUES('Claire',"Chenistry");
+INSERT INTO student(name,major) VALUES('Jack','Biology');
+INSERT INTO student(name,major) VALUES('Mike','Computer Science');
