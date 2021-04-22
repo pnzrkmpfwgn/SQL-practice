@@ -1,21 +1,16 @@
---Find the number of employees
-SELECT COUNT(emp_id) FROM employee;
+-- % = any # characters, _ = one character
 
---Find the number of female employees born after 1970
-SELECT COUNT(emp_id) FROM employee WHERE sex ='F' AND birth_date > '1971-01-01';
+--Find all the client's who are an LLC
+SELECT * FROM client
+WHERE client_name LIKE '%LLC';
 
---Find the average of all employee's salaries
-SELECT AVG(salary) FROM employee;
+--Find any branch suppliers who are in the label bussiness
+SELECT * FROM branch_suppliers 
+WHERE supplier_name LIKE '% label%';
 
---Find the average of all male employee's salaries
-SELECT AVG(salary) WHERE sex = 'm' FROM employee;
+--Find any employee born in October
+SELECT *
+FROM employee WHERE birth_date LIKE '____-10%';
 
---Find the sum of all employee's salaries
-SELECT SUM(salary) FROM employee;
-
---Find out how many males and females there are
-SELECT COUNT(sex), sex FROM employee
-GROUP BY sex;
-
---Find the total sales of each salesman
-SELECT SUM(total_sales),emp_id FROM works_with GROUP BY emp_id;
+--Find any clients who are schools
+SELECT * FROM client WHERE client_name LIKE '%school%';
