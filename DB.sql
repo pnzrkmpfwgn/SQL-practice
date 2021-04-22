@@ -1,26 +1,27 @@
-DROP TABLE student;
+SELECT name FROM student;
 
-UPDATE student
-SET major = 'Biochemistry'
-WHERE major = 'Bio' OR major = 'Chemistry';
+SELECT student.name,student.major FROM student;
 
-DELETE from student
-WHERE student_id = 5;
+SELECT student.name,student.major FROM student
+ORDER BY name;
 
-DELETE from student 
-WHERE name = 'Tom' AND major = 'undecided';
+SELECT * FROM student
+ORDER BY major, student_id DESC;
 
-CREATE TABLE student (
-    student_id INT AUTO_INCREMENT,
-    name VARCHAR(20) NOT NULL,
-    major VARCHAR(20) /*UNIQUE*/DEFAULT 'undecided',
-    PRIMARY KEY(student_id)
-);
+SELECT * FROM student
+ORDER BY major, student_id DESC
+LIMIT 2;
 
-SELECT * FROM student;
+SELECT * FROM student
+WHERE major = 'Biology';
 
-INSERT INTO student(name,major) VALUES('Jack','Biology');
-INSERT INTO student(name,major) VALUES('Kate','Sociology');
-INSERT INTO student(name,major) VALUES('Claire',"Chenistry");
-INSERT INTO student(name,major) VALUES('Jack','Biology');
-INSERT INTO student(name,major) VALUES('Mike','Computer Science');
+
+SELECT name FROM student /*Only get name*/
+WHERE major = 'Biology'; 
+
+SELECT name,major FROM student
+WHERE major <> 'Chemistry'; /*<> means not equal to! */
+
+SELECT *
+FROM student
+WHERE name IN ('Claire','Kate','Mike');
