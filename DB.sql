@@ -1,19 +1,21 @@
---Find all employees ordered by salary
-SELECT * FROM employee ORDER BY salary;
--- DESC salary;
+--Find the number of employees
+SELECT COUNT(emp_id) FROM employee;
 
---Find all employees ordered by sex then name
-SELECT * ORDER BY sex,first_name,last_name;
+--Find the number of female employees born after 1970
+SELECT COUNT(emp_id) FROM employee WHERE sex ='F' AND birth_date > '1971-01-01';
 
---Find the first 5 employees in the table
-SELECT * FROM employee LIMIT 5;
+--Find the average of all employee's salaries
+SELECT AVG(salary) FROM employee;
 
---Find the first and the last names of employees
-SELECT first_name,last_name FROM employee;
+--Find the average of all male employee's salaries
+SELECT AVG(salary) WHERE sex = 'm' FROM employee;
 
---Find the forename and surnames names of all employees
-SELECT first_name AS forename,last_name AS surname FROM employee;
+--Find the sum of all employee's salaries
+SELECT SUM(salary) FROM employee;
 
---Find out all the different genders
-SELECT DISTINCT sex from employee;
+--Find out how many males and females there are
+SELECT COUNT(sex), sex FROM employee
+GROUP BY sex;
 
+--Find the total sales of each salesman
+SELECT SUM(total_sales),emp_id FROM works_with GROUP BY emp_id;
